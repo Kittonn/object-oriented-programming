@@ -1,4 +1,4 @@
-number = int(input("Input : "))
+number = int(input())
 
 sum  = 0
 temp = number
@@ -9,4 +9,4 @@ for i in range(4):
   sum += temp
   temp = temp * 10 + number
   
-print("Output : {} (={})".format(sum, "+".join([str(num) for num in num_list])))
+print(sum)

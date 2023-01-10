@@ -11,4 +11,4 @@ for first_number in range(999, 99, -1):
     if (check_palindrome(str(num))):
       palindrome_list.append(num)
 
-print(f"The largest palindrome : {max(palindrome_list)}")
+print(max(palindrome_list))

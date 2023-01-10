@@ -8,4 +8,4 @@ for char in string:
   elif char.isupper():
     upper_count += 1
 
-print(f"Lower case: {lower_count}\nUpper case: {upper_count}")
+print(f"{lower_count}\n{upper_count}")

@@ -1,3 +1,3 @@
-n = 10
-for i in range(1,n+1):
-  print("{}{}".format(" "*(n-i), "#"*i))
+num = 10
+for row in range(1, num+1):
+  print("{}{}".format(" "*(num - row), "#"*row))

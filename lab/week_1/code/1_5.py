@@ -6,7 +6,8 @@ def check_palindrome(num : str):
 for i in range(999,99, -1):
   for j in range(999,99, -1):
     num = i * j
-    palindrome_list.append(num)
+    if (check_palindrome(str(num))):
+      palindrome_list.append(num)
     
 print(f"The largest palindrome : {max(palindrome_list)}")
     

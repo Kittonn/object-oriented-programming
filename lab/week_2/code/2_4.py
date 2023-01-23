@@ -1,3 +1,2 @@
 def count_minus(num):
-  num = list(map(int, num.split()))
-  return len([item for item in num if item < 0])
+  return len([item for item in list(map(int, num.split())) if item < 0])

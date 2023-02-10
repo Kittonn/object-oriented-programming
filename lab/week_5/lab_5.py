@@ -35,7 +35,8 @@ class Account:
 
 class Admin(Person):
   def __init__(self, fullname, address, email, phone, birth_date, tel, emergency_contact, account, managers_booking, adds_news, manages_field, manages_slot):
-    super().__init__(fullname, address, email, phone, birth_date, tel, emergency_contact, account)
+    super().__init__(fullname, address, email, phone,
+                     birth_date, tel, emergency_contact, account)
     self.__managers_booking = managers_booking
     self.__adds_news = adds_news
     self.__manages_field = manages_field
@@ -44,7 +45,8 @@ class Admin(Person):
 
 class Customer(Person):
   def __init__(self, fullname, address, email, phone, birth_date, tel, emergency_contact, account, creates_booking):
-    super().__init__(fullname, address, email, phone, birth_date, tel, emergency_contact, account)
+    super().__init__(fullname, address, email, phone,
+                     birth_date, tel, emergency_contact, account)
     self.__creates_booking = creates_booking
 
 
@@ -89,11 +91,11 @@ class QrcodeTransaction(Payment):
 
 
 class Slot:
-  def __init__(self, created_on, start_time, end_time, admins):
+  def __init__(self, created_on, start_time, end_time, admin):
     self.__created_on = created_on
     self.__start_time = start_time
     self.__end_time = end_time
-    self.__admins = admins
+    self.__admin = admin
 
 
 class SlotDate(Slot):
@@ -112,6 +114,7 @@ class Field:
     self.__slots = slots
     self.__admin = admin
 
+
 class Category:
-    def __init__(self, category):
-      self.__field_category = []    
+  def __init__(self, category):
+    self.__field_category = []

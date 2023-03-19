@@ -15,23 +15,23 @@ class BookingStatus(Enum):
 
 class Account:
   def __init__(self, id, password, status):
-    self.id = id
-    self.password = password
-    self.status = status
+    self.__id = id
+    self.__password = password
+    self.__status = status
 
-  def resetPassword(self):
+  def changePassword(self):
     pass
 
 
 class Person:
-  def __init__(self, full_name, address, phone_number, email, birth_date, emergency_contact, emergency_contact_phone_number):
-    self.full_name = full_name
-    self.address = address
-    self.phone_number = phone_number
-    self.email = email
-    self.birth_date = birth_date
-    self.emergency_contact = emergency_contact
-    self.emergency_contact_phone_number = emergency_contact_phone_number
+  def __init__(self, fullname, email, phone_number, address, birth_date, emergency_contact_fullname, emergency_contact_phone_number):
+    self.__fullname = fullname
+    self.__email = email
+    self.__phone_number = phone_number
+    self.__address = address
+    self.__birth_date = birth_date
+    self.__emergency_contact_fullname = emergency_contact_fullname
+    self.__emergency_contact_phone_number = emergency_contact_phone_number
 
   def makeBooking(self):
     pass
@@ -40,28 +40,67 @@ class Person:
     pass
 
 
-class Admin(Person):
-  def __init__(self, full_name, address, phone_number, email, birth_date, emergency_contact, emergency_contact_phone_number):
-    super().__init__(full_name, address, phone_number, email,
-                     birth_date, emergency_contact, emergency_contact_phone_number)
-
-  def addField(self):
-    pass
+class FrontDesk(Person):
+  def __init__(self, fullname, email, phone_number, address, birth_date, emergency_contact_fullname, emergency_contact_phone_number):
+    super().__init__(fullname, email, phone_number, address, birth_date,
+                     emergency_contact_fullname, emergency_contact_phone_number)
 
   def addBooking(self):
-    pass
-
-  def addNews(self):
     pass
 
   def addSlot(self):
     pass
 
+  def approveBooking(self):
+    pass
+
 
 class Customer(Person):
-  def __init__(self, full_name, address, phone_number, email, birth_date, emergency_contact, emergency_contact_phone_number):
-    super().__init__(full_name, address, phone_number, email,
-                     birth_date, emergency_contact, emergency_contact_phone_number)
+  def __init__(self, fullname, email, phone_number, address, birth_date, emergency_contact_fullname, emergency_contact_phone_number):
+    super().__init__(fullname, email, phone_number, address, birth_date,
+                     emergency_contact_fullname, emergency_contact_phone_number)
+
+
+class Admin(Person):
+  def __init__(self, fullname, email, phone_number, address, birth_date, emergency_contact_fullname, emergency_contact_phone_number):
+    super().__init__(fullname, email, phone_number, address, birth_date,
+                     emergency_contact_fullname, emergency_contact_phone_number)
+
+  def addField(self):
+    pass
+
+  def editField(self):
+    pass
+
+  def deleteField(self):
+    pass
+
+  def addBooking(self):
+    pass
+
+  def approveBooking(self):
+    pass
+
+  def addNews(self):
+    pass
+
+  def editNews(self):
+    pass
+
+  def deleteNews(self):
+    pass
+
+  def addSlot(self):
+    pass
+
+  def editSlot(self):
+    pass
+
+  def deleteSlot(self):
+    pass
+
+  def blockUser(self):
+    pass
 
 
 class Guest:
@@ -71,65 +110,40 @@ class Guest:
   def registerAccount(self):
     pass
 
-
-class Booking:
-  def __init__(self, booking_id, status, created_on, description):
-    self.booking_id = booking_id
-    self.status = status
-    self.created_on = created_on
-    self.description = description
-
-  def cancel(self):
+  def loginAccount(self):
     pass
-
-  def approve(self):
-    pass
-
-
-class Slot:
-  def __init__(self, created_on, start_time, end_time):
-    self.created_on = created_on
-    self.start_time = start_time
-    self.end_time = end_time
-
-
-class SlotDate(Slot):
-  def __init__(self, created_on, start_time, end_time, date):
-    super().__init__(created_on, start_time, end_time)
-    self.date = date
-
-
-class Field:
-  def __init__(self, name, description, price_by_slot, category, type):
-    self.name = name
-    self.description = description
-    self.price_by_slot = price_by_slot
-    self.category = category
-    self.type = type
-
-  def getSlot(self):
-    pass
-
-
-class Category:
-  def __init__(self, field_category):
-    self.field_category = field_category
 
 
 class News:
   def __init__(self, title, content, image_url, created_on, status):
-    self.title = title
-    self.content = content
-    self.image_url = image_url
-    self.created_on = created_on
-    self.status = status
+    self.__title = title
+    self.__content = content
+    self.__image_url = image_url
+    self.__created_on = created_on
+    self.__status = status
+
+
+class Booking:
+  def __init__(self, booking_id, status, created_on, description):
+    self.__booking_id = booking_id
+    self.__status = status
+    self.__created_on = created_on
+    self.__description = description
+
+  def cancel(self):
+    pass
+
+
+class BookingHistory:
+  def __init__(self, booking):
+    self.__booking = booking
 
 
 class Equipment:
   def __init__(self, name, price, item):
-    self.name = name
-    self.price = price
-    self.item = item
+    self.__name = name
+    self.__price = price
+    self.__item = item
 
 
 class Vest(Equipment):
@@ -142,18 +156,54 @@ class Football(Equipment):
     super().__init__(name, price, item)
 
 
+class Slot:
+  def __init__(self, created_on, start_time, end_time):
+    self.__created_on = created_on
+    self.__start_time = start_time
+    self.__end_time = end_time
+
+
+class SlotDate(Slot):
+  def __init__(self, created_on, start_time, end_time, date):
+    super().__init__(created_on, start_time, end_time)
+    self.__date = date
+
+
+class Field:
+  def __init__(self, name, description, price_by_slot, category, type):
+    self.__name = name
+    self.__description = description
+    self.__price_by_slot = price_by_slot
+    self.__category = category
+    self.__type = type
+
+  def getSlot(self):
+    pass
+
+
+class Category:
+  def __init__(self, fields):
+    self.__field_category = fields
+    
+  def search_by_category(self):
+    pass
+  
+  def search_by_date(self):
+    pass
+    
+
 class Payment:
   def __init__(self, amount, created_on, payment_status, transaction_id):
-    self.amount = amount
-    self.created_on = created_on
-    self.payment_status = payment_status
-    self.transaction_id = transaction_id
+    self.__amount = amount
+    self.__created_on = created_on
+    self.__payment_status = payment_status
+    self.__transaction_id = transaction_id
 
 
 class QRCodeTransaction(Payment):
-  def __init__(self, amount, created_on, payment_status, transaction_id, qrcode_url):
+  def __init__(self, amount, created_on, payment_status, transaction_id, qr_code):
     super().__init__(amount, created_on, payment_status, transaction_id)
-    self.qrcode_url = qrcode_url
+    self.__qr_code = qr_code
 
 
 class CashTransaction(Payment):

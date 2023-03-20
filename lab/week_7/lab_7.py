@@ -54,9 +54,6 @@ class FrontDesk(Person):
     super().__init__(fullname, email, phone_number, address, birth_date,
                      emergency_contact_fullname, emergency_contact_phone_number)
 
-  def add_slot(self):
-    pass
-
   def approve_booking(self):
     pass
 

@@ -19,7 +19,13 @@ class Account:
     self.__password = password
     self.__status = status
 
-  def changePassword(self):
+  def check_password(self):
+    pass
+
+  def create_user(self):
+    pass
+
+  def logout_account(self):
     pass
 
 
@@ -33,10 +39,13 @@ class Person:
     self.__emergency_contact_fullname = emergency_contact_fullname
     self.__emergency_contact_phone_number = emergency_contact_phone_number
 
-  def makeBooking(self):
+  def add_booking(self, slot, description):
     pass
 
-  def getBooking(self):
+  def get_booking_detail(self):
+    pass
+
+  def search_booking_by_id(self, id):
     pass
 
 
@@ -45,13 +54,10 @@ class FrontDesk(Person):
     super().__init__(fullname, email, phone_number, address, birth_date,
                      emergency_contact_fullname, emergency_contact_phone_number)
 
-  def addBooking(self):
+  def add_slot(self):
     pass
 
-  def addSlot(self):
-    pass
-
-  def approveBooking(self):
+  def approve_booking(self):
     pass
 
 
@@ -66,40 +72,37 @@ class Admin(Person):
     super().__init__(fullname, email, phone_number, address, birth_date,
                      emergency_contact_fullname, emergency_contact_phone_number)
 
-  def addField(self):
+  def add_field(self, name, description, price_by_slot, category, type, slot):
     pass
 
-  def editField(self):
+  def edit_field(self, name, description, price_by_slot, category, type, slot):
     pass
 
-  def deleteField(self):
+  def delete_field(self):
     pass
 
-  def addBooking(self):
+  def approve_booking(self):
     pass
 
-  def approveBooking(self):
+  def add_news(self, title, content, image_url, created_on, status):
     pass
 
-  def addNews(self):
+  def edit_news(self, title, content, image_url, created_on, status):
     pass
 
-  def editNews(self):
+  def delete_news(self):
     pass
 
-  def deleteNews(self):
+  def add_slot(self, created_on, start_time, end_time):
     pass
 
-  def addSlot(self):
+  def edit_slot(self, created_on, start_time, end_time):
     pass
 
-  def editSlot(self):
+  def delete_slot(self):
     pass
 
-  def deleteSlot(self):
-    pass
-
-  def blockUser(self):
+  def block_user(self):
     pass
 
 
@@ -107,10 +110,16 @@ class Guest:
   def __init__(self):
     pass
 
-  def registerAccount(self):
+  def register_account(self):
     pass
 
-  def loginAccount(self):
+  def login_account(self):
+    pass
+
+  def check_register(self):
+    pass
+
+  def check_login(self):
     pass
 
 
@@ -133,10 +142,22 @@ class Booking:
   def cancel(self):
     pass
 
+  def create_payment(self):
+    pass
+
+  def set_equipment(self):
+    pass
+
+  def get_booking_detail(self):
+    pass
+
 
 class BookingHistory:
   def __init__(self, booking):
     self.__booking = booking
+
+  def search_booking_by_id(self):
+    pass
 
 
 class Equipment:
@@ -177,20 +198,20 @@ class Field:
     self.__category = category
     self.__type = type
 
-  def getSlot(self):
+  def get_slot(self, field, date):
+    pass
+
+  def get_field_detail(self):
     pass
 
 
 class Category:
   def __init__(self, fields):
     self.__field_category = fields
-    
-  def search_by_category(self):
+
+  def search_field(self, date, catalog):
     pass
-  
-  def search_by_date(self):
-    pass
-    
+
 
 class Payment:
   def __init__(self, amount, created_on, payment_status, transaction_id):
